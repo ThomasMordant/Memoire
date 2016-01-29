@@ -1,0 +1,346 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Commandes communes aux classes personnalisées --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mdframed}
+\usepackage{enumitem}
+\usepackage{dsfont}
+\usepackage{float}
+
+% --- Inclusion d'image ---
+
+\newcommand{\inc}[1]{\includegraphics[width = \textwidth]{#1}}
+
+% --- Pour des mathématiques en gras dans les titres ---
+
+\DeclareRobustCommand*{\bfseries}{%
+  \not@math@alphabet\bfseries\mathbf%
+  \fontseries\bfdefault\boldmath\selectfont%
+}
+
+% --- Commandes d'spacement ---
+
+\newcommand{\Saut}{\par\addvspace{\bigskipamount}\par}
+\newcommand{\bigspace}{\par\addvspace{2\baselineskip}\par}
+
+% --- Commandes de simplifications des mathématiques ---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Ensembles de nombres ---
+
+\newcommand\N{\mathbf{N}}
+\renewcommand\P{\mathbf{P}} 
+\newcommand\Z{\mathbf{Z}}
+\newcommand\Q{\mathbf{Q}}
+\newcommand\D{\mathbf{D}}
+\newcommand\I{\mathbf{I}}
+\newcommand\R{\mathbf{R}}
+\newcommand\C{\mathbf{C}}
+\newcommand\K{\mathbf{K}}
+\newcommand\F{\mathbf{F}}
+\newcommand{\iC}{\hat{\C}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bF}{\mathbf{F}}
+
+% --- Lettres majuscules calligraphiées ---
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}} 
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cW}{\mathcal{W}}
+
+% --- Minuscules droites ---
+
+\newcommand{\txtz}[1]{\,{\mathrm #1}}
+\newcommand{\mA}{\txtz{a}}
+\newcommand{\mB}{\txtz{b}}
+\newcommand{\mC}{\txtz{c}}
+\newcommand{\mD}{\txtz{d}}
+\newcommand{\mE}{\txtz{e}}
+\newcommand{\mF}{\txtz{f}}
+\newcommand{\mG}{\txtz{g}}
+\newcommand{\mH}{\txtz{h}}
+\newcommand{\mI}{\txtz{i}}
+\newcommand{\mJ}{\txtz{j}}
+\newcommand{\mK}{\txtz{k}}
+\newcommand{\mL}{\txtz{l}}
+\newcommand{\mM}{\txtz{m}}
+\newcommand{\mN}{\txtz{n}}
+\newcommand{\mO}{\txtz{o}}
+\newcommand{\mP}{\txtz{p}}
+\newcommand{\mQ}{\txtz{q}}
+\newcommand{\mR}{\txtz{r}}
+\newcommand{\mS}{\txtz{s}}
+\newcommand{\mT}{\txtz{t}}
+\newcommand{\mU}{\txtz{u}}
+\newcommand{\mV}{\txtz{v}}
+\newcommand{\mW}{\txtz{w}}
+\newcommand{\mX}{\txtz{x}}
+\newcommand{\mY}{\txtz{y}}
+\newcommand{\mZ}{\txtz{z}}
+
+% --- Lettres majuscules droites ---
+
+\newcommand{\rE}{{\rm E}} 
+\newcommand{\rT}{{\rm T}} 
+\newcommand{\rX}{{\rm X}} 
+\newcommand{\rY}{{\rm Y}} 
+\newcommand{\rO}{{\rm O}} 
+\newcommand{\oo}{{\rm o}} 
+\newcommand{\rL}{\mathrm{L}}
+
+\newcommand{\matrice}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\systeme}[1]{\left\{\begin{aligned} #1 \end{aligned}\right.}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\nens}[1]{\mathcal{#1}}
+
+%---- Modifications de symboles -----
+
+\newcommand{\ii}{\boldsymbol{i}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\jac}{{\rm J}}
+
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\re}{\mathop{\mathrm{Re}}\nolimits}
+\newcommand{\im}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ssi}{\iff} 
+\newcommand{\implique}{\implies}
+\newcommand{\vers}{\rightarrow}
+\newcommand{\donne}{\mapsto}
+\def \m {^{-1}}
+\def \Sup  {{\mathrm{Sup}}\: }
+
+% --- Délimiteurs ---
+
+\newcommand{\Par}[1]{\left(#1\right)}
+\newcommand{\parent}[1]{\left( #1 \right)}
+\newcommand{\absolue}[1]{\left\lvert#1\right\rvert}
+\newcommand{\abs}[1]{\absolue{#1}}
+\newcommand{\norme}[1]{\left\lVert#1\right\rVert}
+\newcommand{\ens}[1]{\left\{#1\right\}}
+\newcommand{\ent}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\enstq}[2]{\ens{#1 \,\middle\vert\, #2}}
+\newcommand{\barre}[1]{\overline{#1}}
+
+% --- Nouveaux opérateurs ---
+
+\DeclareMathOperator*{\Card}{Card}
+\DeclareMathOperator*{\card}{card}
+\DeclareMathOperator*{\pgcd}{pgcd}
+\DeclareMathOperator*{\ppcm}{ppcm}
+\DeclareMathOperator*{\val}{val}
+\newcommand{\id}{\mathop{\mathrm{id}}\nolimits}
+\DeclareMathOperator*{\tr}{tr}
+
+\newcommand{\ch}{\mathop{\mathrm{ch}}\nolimits}
+\newcommand{\sh}{\mathop{\mathrm{sh}}\nolimits}
+\renewcommand{\th}{\mathop{\mathrm{th}}\nolimits}
+\newcommand{\Arcsin}{\mathop{\mathrm{Arcsin}}\nolimits}
+\newcommand{\Arccos}{\mathop{\mathrm{Arccos}}\nolimits}
+\newcommand{\Arctan}{\mathop{\mathrm{Arctan}}\nolimits}
+\newcommand{\Argsh}{\mathop{\mathrm{Argsh}}\nolimits}
+\newcommand{\Argch}{\mathop{\mathrm{Argsh}}\nolimits}
+\newcommand{\Argth}{\mathop{\mathrm{Argth}}\nolimits}
+\renewcommand{\arcsin}{\Arcsin}
+\renewcommand{\arccos}{\Arccos}
+\renewcommand{\arctan}{\Arctan}
+\newcommand{\argsh}{\Argsh}
+\newcommand{\argch}{\Argch}
+\newcommand{\argth}{\Argth}
+
+\DeclareMathOperator*{\rg}{rg}
+\DeclareMathOperator*{\Com}{Com}
+\DeclareMathOperator*{\Fr}{Fr}
+\DeclareMathOperator*{\diam}{diam}
+
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Orth}{O}
+\renewcommand{\det}{{\rm det}}
+
+\newcommand*{\fonc}[5]
+{%
+    #1 \colon \left| %
+    \begin{aligned} 
+        #2 &\to     #3 \\
+        #4 &\mapsto #5
+    \end{aligned}
+    \right.%
+}
+
+% --- Simplification des symboles ---
+
+\newcommand{\transp}[1]{{^t}#1}
+\newcommand{\relation}{\nens{R}}
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup} 
+\newcommand{\inter}{\cap}
+\newcommand{\Inter}{\bigcap}
+\newcommand{\dans}{\subset}
+\newcommand{\danseq}{\subseteq}
+\newcommand{\contient}{\supset}
+\newcommand{\contienteq}{\supseteq}
+\newcommand{\disj}{\vee}
+
+\DeclareMathOperator*{\Ker}{Ker}
+
+\newcommand{\ega}{& = }
+\newcommand{\rond}{\circ}
+\newcommand{\fcaract}{\chi}
+\newcommand{\prive}[1]{\setminus \ens{#1}}
+\newcommand{\vide}{\emptyset}
+
+\newcommand{\fois}{\times}
+\newcommand{\congru}{\equiv}
+\newcommand{\ou}{\text{ ou }}
+\newcommand{\et}{\text{ et }}
+\newcommand{\elem}[2]{\text{#1}\indice{#2}}
+\newcommand{\indice}[1]{_\text{#1}}
+
+% --- Éléments différentiels dans une intégrale ---
+
+\newcommand{\dd}{\mathop{\mathrm{{}d}}\mathopen{}}
+\newcommand{\dt}{\dd t}
+\newcommand{\dx}{\dd x}
+\newcommand{\du}{\dd u}
+\newcommand{\diff}{\frac\dd\dt}
+\newcommand{\diffat}[1]{\left.\diff\right\rvert_{t = #1}}
+
+\renewcommand{\at}[2]{\left. #1\right\rvert_{#2}}
+
+\newcommand{\point}[1]{\dot{#1}}
+\newcommand{\dpoints}[1]{\ddot{#1}}
+
+\newcommand{\vectoriel}{\wedge}
+\newcommand{\grad}[1]{\vect{\nabla} \left( #1 \right)}
+
+\newcommand{\inv}[1]{\overset{-1}{#1}}
+\renewcommand{\nmid}{\diagup\hskip-11pt\mid} 
+\newcommand{\kpn}[2]{\binom{#2}{#1}}
+\newcommand{\ind}[1]{#1 \index{#1}}
+\newcommand{\graphf}[3]{\sageplot[width = \textwidth]{plot(#1,(x,#2,#3))}}
+
+\newcommand{\priv}{\setminus}
+\newcommand{\rep}{(O,\vect{\imath},\vect{\jmath})}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\z}[2]{#1\e^{i\left(#2\right)}}
+
+\newcommand{\cqfd}{\ifmmode\tag*{$\blacksquare$}\else\hfill$\blacksquare$\fi}
+\newcommand{\fdef}{\begin{center}$\clubsuit$\end{center}}
+\newcommand{\ouv}[1]{\overset{\circ}{#1}}
+
+\newcommand{\paragraphsc}[1]{\paragraph{#1}}
+
+
+% --- Définitions des points ---
+
+\newcounter{propiC}
+\setcounter{propiC}{0} 
+\newcommand{\propt}[1]{\refstepcounter{propiC}\textbf{\thepropiC. \ }\label{#1}}
+\newcommand{\newpropt}{\setcounter{propiC}{0}}
+
+% --- Couleurs des liens ---
+
+\hypersetup{
+	colorlinks=true,
+	breaklinks=true,
+	urlcolor=black,
+	linkcolor=black, 
+	citecolor=black
+}
+
+% --- Début et fin de document ---
+
+\AtBeginDocument{\maketitle}
+
+
+
+% --- Enoncés ---
+%%%%%%%%%%%%%%%%%
+
+% --- Définition de style de théorème ---
+
+\newtheoremstyle{myplain}
+    {\z@}
+    {\z@}
+    {}
+    {}
+    {\scshape}
+    {}
+    { }% Fais attention à l'espace !
+    {}
+
+\patchcmd{\@begintheorem}{\ignorespaces}{\strut\par\nobreak\ignorespaces\setlist{nolistsep}}{}{}
+
+
+\theoremstyle{myplain}
+
+% --- Encadrement ---
+
+\newenvironment*{encadrer}[1][1pt]{%
+\Saut
+\begin{mdframed}[
+topline=false, bottomline=false, rightline=false, linewidth=#1,
+skipabove=0pt, skipbelow=0pt, rightmargin=-10pt,
+innertopmargin=0pt, innerbottommargin=0pt,
+everyline=true, splittopskip=0pt, splitbottomskip=0pt
+]
+}
+{%
+\end{mdframed}
+\Saut
+}
+
+% --- Définition des théorèmes ---
+
+
+\newtheorem{definitionT}    {Définition}    [section]
+\newtheorem{propositionT}[definitionT]   {Proposition}   
+\newtheorem{theoremeT}[definitionT]      {Théorème}
+\newtheorem{loiT}[definitionT]           {Loi} 
+\newtheorem*{demonstrationT}		{Preuve}
+\newtheorem*{preuveT}		{Preuve}
+\newtheorem{axiomeT}[definitionT]        {Axiome}
+\newtheorem{lemmeT} [definitionT]        {Lemme}
+\newtheorem{corollaireT} [definitionT]   {Corollaire}
+\newtheorem{procedeT} [definitionT]   {Procédé}
+
+% --- Théorèmes encadrés ---
+
+\newcommand{\definition}[2]{\begin{encadrer}\begin{definitionT}[#2]#1\end{definitionT}\end{encadrer}}
+\newcommand{\proposition}[2]{\begin{encadrer}\begin{propositionT}[#2]#1\end{propositionT}\end{encadrer}}
+\newcommand{\theoreme}[2]{\begin{encadrer}\begin{theoremeT}[#2]#1\end{theoremeT}\end{encadrer}}
+\newcommand{\loi}[2]{\begin{encadrer}\begin{loiT}[#2]#1\end{loiT}\end{encadrer}}
+\newcommand{\demonstration}[2]{\begin{encadrer}[.3pt]\begin{demonstrationT}[#2]{\small#1}\end{demonstrationT}\end{encadrer}}
+\newcommand{\preuve}[2]{\begin{encadrer}[.3pt]\begin{preuveT}[#2]{\small#1}\end{preuveT}\end{encadrer}}
+\newcommand{\axiome}[2]{\begin{encadrer}\begin{axiomeT}[#2]#1\end{axiomeT}\end{encadrer}}
+\newcommand{\lemme}[2]{\begin{encadrer}\begin{lemmeT}[#2]#1\end{lemmeT}\end{encadrer}}
+\newcommand{\corollaire}[2]{\begin{encadrer}\begin{corollaireT}[#2]#1\end{corollaireT}\end{encadrer}}
+\newcommand{\procede}[2]{\begin{encadrer}\begin{procedeT}[#2]#1\end{procedeT}\end{encadrer}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Fin des commandes personnalisées --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
