@@ -1,4 +1,4 @@
-# Memoire
+# Présentation
 
 C'est le git dédié à la rédaction du mémoire de L3. Le but est de rassembler tous les éléments nécessaires à la compilation :
 
