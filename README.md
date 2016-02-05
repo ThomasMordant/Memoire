@@ -10,15 +10,15 @@ C'est le git dédié à la rédaction du mémoire de L3. Le but est de rassemble
 
 Pour cela il faut :
 
-- faire un clone du projet ;
+- faire un fork du projet ;
 - y appliquer les modifications et avancées ;
-- faire un pull-request en créant une nouvelle branche pour me soumettre les fichiers modifiés (ou ajoutés).
+- faire un pull-request pour me soumettre les fichiers modifiés (ou ajoutés).
 
 Je ferai alors en sorte de valider rapidement ce pull-request afin d'avoir une même vesion disponible.
 
 # Rester à jour
 
-Pour mettre à jour sa version il faut faire un pull. L'action push m'étant réservée.
+Pour mettre à jour sa version il faut faire un pull-request dans l'autre direction qu'il faut valider soi-même.
 
 Il vaut mieux également suivre le projet en recevant les différentes notifications (pour prendre connaissance des nouveaux tickets ou changements apportés).
 
