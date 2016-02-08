@@ -277,12 +277,17 @@
 \RequirePackage{mdframed}
 
 \newcommand{\@expandNotes}{}
+\newcounter{numberfootnote}
 \newenvironment*{encadrer}[1][1pt]{%
 	\Saut
+	\setcounter{numberfootnote}{\number\value{footnote}}
 	\renewcommand{\@expandNotes}{}
 	\renewcommand{\note}[1]{%
-		\footnotemark
-		\global\appto{\@expandNotes}{\footnotetext{##1}}
+		\footnotemark%
+		\gappto{\@expandNotes}{%
+			\addtocounter{numberfootnote}{1}%
+			\footnotetext[\thenumberfootnote]{##1}%
+		}
 	}
 	\begin{mdframed}[
 		topline=false, bottomline=false, rightline=false, linewidth=#1,

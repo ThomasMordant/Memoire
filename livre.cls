@@ -83,14 +83,23 @@
 
 % --- Page de garde ---
 
-\newcommand{\auteur}[1]{
-	\def\@auteur{#1}
-	\hypersetup{pdfauthor={#1}}
-}
 \newcommand{\titre}[1]{
 	\title{#1}
 	\hypersetup{pdftitle={#1}}
 }
+\newcommand{\soustitre}[1]{
+	\def\@soustitre{#1}
+	\hypersetup{pdfsubject={#1}}
+}
+\newcommand{\auteurs}[1]{
+	\def\@auteurs{#1}
+	\hypersetup{pdfauthor={#1}}
+}
+\newcommand{\illustration}[1]{\def\@illustration{#1}}
+\def\@date{}
+\renewcommand{\date}[1]{\def\@date{#1}}
+\newcommand{\lieu}[1]{\def\@lieu{#1}}
+\newcommand{\externes}[1]{\def\@externes{#1}}
 
 \renewenvironment{titlepage}{%
 	\cleardoublepage
@@ -111,19 +120,55 @@
 		\let\footnotesize\small
 		\let\footnoterule\relax
 		\let \footnote \thanks
-		\null\vfill
+		\null
+		\ifdefined\@illustration\relax\else
+			\vspace{3cm}
+		\fi
 		\begin{center}%
-			{\Huge\MakeUppercase{\@title}}
+			\Huge
+			\linespread{1.5}\selectfont
+			\MakeUppercase{\@title}
 			
-			\vspace{2cm}
-			
-			{\ifdefined\@auteur\relax\Large\@auteur\fi}
-			
-			\vspace{4cm}
+			\linespread{1}\selectfont
+			\ifdefined\@soustitre\relax
+				\vspace{.3cm}
+				{\Large\@soustitre}
+			\fi
 
-			{\large\@date}
-		\end{center}\par
-		\vfill\null
+			\ifdefined\@auteurs\relax
+				\vspace{1cm}
+				{\LARGE\@auteurs}
+			\fi
+
+			\vfill
+
+			\ifdefined\@illustration\relax
+				\@illustration
+			\fi
+		\end{center}
+		\vfill
+
+		\noindent{\LARGE
+		\begin{minipage}{.5\linewidth}
+			\strut
+			\ifdefined\@date\relax
+				\@date
+			\fi
+
+			\ifdefined\@lieu\relax
+				\@lieu
+			\fi
+		\end{minipage}%
+		\begin{minipage}{.5\linewidth}
+			\strut
+			\raggedleft
+			\ifdefined\@externes\relax
+				\@externes
+			\fi
+		\end{minipage}
+		}
+
+		\vspace{2cm}\null
 	\end{titlepage}%
 	\setcounter{footnote}{0}%
 	\global\let\thanks\relax

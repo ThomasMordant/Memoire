@@ -1,9 +1,17 @@
 \documentclass{livre}
 
 \titre{Patchwork combinatoire de courbes algébriques}
-\auteur{Raphaël \textsc{Alexandre}, Thomas \textsc{Mordant} \\ Encadré par : Ilia \textsc{Itenberg}}
+\soustitre{Mémoire de L3}
+\auteurs{Raphaël \bsc{Alexandre}, Thomas \bsc{Mordant}}
+\externes{Encadré par : \\ Ilia \bsc{Itenberg}}
+\lieu{\'Ecole Normale Supérieure}
+\date{\today}
 
 \newcommand{\der}[3]{\at{\frac{\partial #1}{\partial #2}}{#3}}
+
+
+\bibliography{bibliographie}
+
 
 \begin{document}
 
@@ -84,7 +92,7 @@ Nous procédons de même avec le cas où nous aurions $5$ ovales. Par leurs $5$ 
 
 \section{Lemme de \textsc{Morse}}
 
-D'après \textsc{Milnor}, \emph{Morse Theory}.\note{Il faudra commencer à préparer la bibliographie.}
+D'après \cite{Milnor1973}.
 \lemme{ 
 Soit $p$ un point critique non dégénéré de $f$. Alors il existe un système de coordonnées locales $(y^{1},\ldots,y^{n})$ dans un voisinage $U$ de $p$ tel que $y^{i}(p)=0$ pour tout $i$ et aussi : \[ f= f(p) - (y^{1})^{2} -\ldots - (y^{\lambda})^{2} + (y^{\lambda+1})^{2} + \ldots + (y^{n})^{2}  \]avec $\lambda$ l'index de $f$ en $p$.
 }{\textsc{Morse}}
@@ -144,5 +152,5 @@ Il existe aussi $\eps >0$ tel que pour tout $t\in ]0,\eps]$, $X=P+tQ$ convienne.
 }{Petites perturbations\note{Traduction de l'énoncé à vérifier}}
 
 
-
+\printbibliography
 \end{document}
