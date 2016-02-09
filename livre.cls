@@ -1,5 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Classe livre de R. Alexandre --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \NeedsTeXFormat{LaTeX2e}
- 
+
 \ProvidesClass{livre}
 
 % --- Option pour l'adaptation du document aux tablettes ---
@@ -9,16 +13,18 @@
 \ProcessOptions\relax
 
 \iftablette
-	  \PassOptionsToPackage{top=2cm, bottom=2cm,%
-	                      left=2cm, right=2cm,%
-	                      marginparsep=7.5mm, 			marginparwidth=5cm,%
-	                      headsep=2em, footskip=4em,%
-	                      paperwidth=15.625cm, paperheight=25cm}{geometry}      % 25 / 18.75  15.625             
+	\PassOptionsToPackage{
+		top=2cm, bottom=2cm, left=2cm, right=2cm,
+		marginparsep=7.5mm, marginparwidth=5cm,
+		headsep=2em, footskip=4em,
+		paperwidth=15.625cm, paperheight=25cm
+	}{geometry}
 \else
-
-	\PassOptionsToPackage{top=2cm, bottom=2cm,  left=3cm, right=3cm,  headsep=2em, footskip=4em, marginparsep=7.5mm, marginparwidth=5cm}{geometry}
-	%\PassOptionsToPackage{top=1.5cm, bottom=-0.5cm, left=1cm, right=1cm, headsep=2em, footskip=4em, marginparsep=7.5mm, marginparwidth=5cm}{geometry}                     
-	
+	\PassOptionsToPackage{
+		top=2cm, bottom=2cm, left=3cm, right=3cm,
+		headheight=\baselineskip, headsep=2em, footskip=4em,
+		marginparsep=7.5mm, marginparwidth=5cm
+	}{geometry}
 	\PassOptionsToClass{a4paper}{book}
 \fi
 
@@ -28,7 +34,7 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[french]{babel}
-\RequirePackage[T1]{fontenc} 
+\RequirePackage[T1]{fontenc}
 \RequirePackage{geometry}
 \RequirePackage{lmodern}
 \RequirePackage{amsmath}
@@ -36,55 +42,66 @@
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage[usenames, dvipsnames]{xcolor}
-\RequirePackage{fancyhdr} 
 \RequirePackage{url}
 \RequirePackage{appendix}
 \RequirePackage[backend=biber, style=trad-alpha, bibstyle=trad-alpha, citestyle=trad-alpha]{biblatex}
 %\RequirePackage{asymptote}
-%\RequirePackage{tkz-graph} 
+%\RequirePackage{tkz-graph}
 %\RequirePackage{tkz-berge}
 %\RequirePackage{graphviz}
 %\RequirePackage{sagetex}
-% \RequirePackage{makeidx} 
+%\RequirePackage{makeidx}
 %\RequirePackage{tikz}
-\RequirePackage{framed}
 \RequirePackage{graphicx}
-\RequirePackage[plainpages=false, pdfpagelabels]{hyperref}
 \RequirePackage[all]{xy}
-\RequirePackage[math]{cellspace}
-\RequirePackage{mdframed}
+\RequirePackage{enumitem}
+\RequirePackage{dsfont}
+\RequirePackage{float}
+\RequirePackage[plainpages=false, pdfpagelabels]{hyperref}
 
 % --- Inclusion des commandes générales de cours ---
 
 \input{commandes.tex}
 
+% --- Couleurs des liens ---
+
+\hypersetup{
+	colorlinks=true,
+	breaklinks=true,
+	urlcolor=black,
+	linkcolor=black,
+	citecolor=black
+}
+
 % --- Début du document ---
 
-\AtBeginDocument{\frontmatter\doparttoc}
+\AtBeginDocument{\maketitle\frontmatter\doparttoc\addtocontents{toc}{\protect\thispagestyle{nopage}}}
 
-\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{nopage}}} 
-
-\appto\frontmatter{\pagestyle{nopage}}                                       
-\appto\mainmatter{\pagestyle{normale}}                                        
+\appto\frontmatter{\pagestyle{nopage}}
+\appto\mainmatter{\pagestyle{normale}}
 \appto\backmatter{\pagestyle{nopage}}
 
 % --- Page de garde ---
 
-\newcommand{\auteur}[1]{\def\@auteur{#1}}
-\newcommand{\titre}[1]
-{
-	\title{#1}%
-	\author{Raphaël \bsc{Alexandre}}%
-	\hypersetup{pdftitle={#1}, pdfauthor={Raphaël Alexandre}} % Permet de mettre le titre dans les informations du PDF produit.
+\newcommand{\titre}[1]{
+	\title{#1}
+	\hypersetup{pdftitle={#1}}
 }
+\newcommand{\soustitre}[1]{
+	\def\@soustitre{#1}
+	\hypersetup{pdfsubject={#1}}
+}
+\newcommand{\auteurs}[1]{
+	\def\@auteurs{#1}
+	\hypersetup{pdfauthor={#1}}
+}
+\newcommand{\illustration}[1]{\def\@illustration{#1}}
+\def\@date{}
+\renewcommand{\date}[1]{\def\@date{#1}}
+\newcommand{\lieu}[1]{\def\@lieu{#1}}
+\newcommand{\externes}[1]{\def\@externes{#1}}
 
-\renewenvironment{titlepage} % On redéfinie la page de titre pour ne pas avoir de marge.
-{%
-	\iftablette%
-		\newgeometry{margin=3cm}%
-	\else%
-		\newgeometry{margin=2cm}%
-	\fi
+\renewenvironment{titlepage}{%
 	\cleardoublepage
 	\if@twocolumn
 		\@restonecoltrue\onecolumn
@@ -93,32 +110,65 @@
 	\fi
 	\thispagestyle{empty}%
 	\setcounter{page}\z@
-}%
-{%
+}{%
 	\restoregeometry
 	\if@restonecol\twocolumn \else \newpage \fi
 }
 
-\renewcommand{\maketitle}
-{%
+\renewcommand{\maketitle}{%
 	\begin{titlepage}%
 		\let\footnotesize\small
 		\let\footnoterule\relax
 		\let \footnote \thanks
-		\null\vfill
+		\null
+		\ifdefined\@illustration\relax\else
+			\vspace{3cm}
+		\fi
 		\begin{center}%
-			{\Huge\MakeUppercase{\@title}}
+			\Huge
+			\linespread{1.5}\selectfont
+			\MakeUppercase{\@title}
 			
-			\vspace{2cm}
-			
-			{\ifdefined\@auteur\relax\Large\@auteur\fi}
-			
-			\vspace{2cm}
-			
-			\vspace{2cm}
-			{\large\@date}
-		\end{center}\par
-		\vfill\null
+			\linespread{1}\selectfont
+			\ifdefined\@soustitre\relax
+				\vspace{.3cm}
+				{\Large\@soustitre}
+			\fi
+
+			\ifdefined\@auteurs\relax
+				\vspace{1cm}
+				{\LARGE\@auteurs}
+			\fi
+
+			\vfill
+
+			\ifdefined\@illustration\relax
+				\@illustration
+			\fi
+		\end{center}
+		\vfill
+
+		\noindent{\LARGE
+		\begin{minipage}{.5\linewidth}
+			\strut
+			\ifdefined\@date\relax
+				\@date
+			\fi
+
+			\ifdefined\@lieu\relax
+				\@lieu
+			\fi
+		\end{minipage}%
+		\begin{minipage}{.5\linewidth}
+			\strut
+			\raggedleft
+			\ifdefined\@externes\relax
+				\@externes
+			\fi
+		\end{minipage}
+		}
+
+		\vspace{2cm}\null
 	\end{titlepage}%
 	\setcounter{footnote}{0}%
 	\global\let\thanks\relax
@@ -132,15 +182,15 @@
 }
 
 % --- Rédéfinitions des sections ---
+
+\RequirePackage{titlesec}
+
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\setthesection}{\Alph{section}} % Numérotation de sous-annexes
 
 \setcounter{secnumdepth}{3} % Numérotation des sections jusqu'au sous-sous-section
 
-
-
-\renewcommand{\part}
-{ % Style des parties
+\renewcommand{\part}{ % Style des parties
 	\if@openright
 		\cleardoublepage
 	\else
@@ -155,51 +205,48 @@
 	\fi
 	\secdef\@part\@spart%
 }
-\newif\ifnewpart\newpartfalse % Booléen pour savoir s'il y a une nouvelle partie.
 
-\def\@part[#1]#2
-{ % Style des parties
-\ifnum \c@secnumdepth >-2\relax
-\refstepcounter{part}%
-\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
-\else
-\addcontentsline{toc}{part}{#1}%
-\fi
-\markboth{}{}%
-{\centering
-\interlinepenalty \@M
-\normalfont
-\ifnum \c@secnumdepth >-2\relax
-\huge\bfseries \partname\nobreakspace\thepart
-\par
-\vskip 20\p@
-\fi
-\Huge \bfseries #2\vskip2\baselineskip\par}%
-\label{partie:\thepart}%
-\global\newparttrue % On le met à vrai.
+\newif\ifnewpart\newpartfalse % Booléen pour savoir s'il y a une nouvelle partie.
+\def\@part[#1]#2{ % Style des parties
+	\ifnum \c@secnumdepth >-2\relax
+		\refstepcounter{part}%
+		\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+	\else
+		\addcontentsline{toc}{part}{#1}%
+	\fi
+	\markboth{}{}%
+	{\centering
+	\interlinepenalty \@M
+	\normalfont
+	\ifnum \c@secnumdepth >-2\relax
+	\huge\bfseries \partname\nobreakspace\thepart
+	\par
+	\vskip 20\p@
+	\fi
+	\Huge \bfseries #2\vskip2\baselineskip\par}%
+	\label{partie:\thepart}%
+	\global\newparttrue % On le met à vrai.
 }
 
-\def\@spart#1
-{ % Styles des parties sans numéro
+\def\@spart#1{ % Styles des parties sans numéro
 	{\centering
 	 \interlinepenalty \@M
 	 \normalfont
 	 \Huge \bfseries #1\vskip2\baselineskip\par}%
 }
 
-
 \renewcommand{\chapter}{
-        \ifnewpart\else % On test.
-                \newpage
-        \fi
-        \global\newpartfalse % Et on le met à feux
-        \thispagestyle{empty}%
-        \global\@topnum\z@
-        \@afterindentfalse
-        \secdef\@chapter\@schapter
+	\ifnewpart\else % On test.
+		\newpage
+	\fi
+	\global\newpartfalse % Et on le met à feux
+	\thispagestyle{empty}%
+	\global\@topnum\z@
+	\@afterindentfalse
+	\secdef\@chapter\@schapter
 }
-\renewcommand{\appendix}
-{ % Annexes
+
+\renewcommand{\appendix}{ % Annexes
 	\par
 	\setcounter{chapter}{0}%
 	\setcounter{section}{0}%
@@ -208,31 +255,34 @@
 	\def\sectionname{Appendice}
 }
 
+\newcounter{@presSection}
+
+\let\oldeverypar\everypar
+\newtoks\everypar
+\oldeverypar{\the\everypar\stepcounter{@presSection}}
+
+\newcommand{\Saut}{%
+	\ifnum\the@presSection>0%
+		\par\addvspace\bigskipamount\par
+	\fi%
+	\global\stepcounter{@presSection}%
+}
+
+\newcommand{\@presSection}{\global\setcounter{@presSection}{0}}
+
 \normalfont\DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
 
-\renewcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                   {2.3ex \@plus.2ex}%
-                                   {\normalfont\Large\bfseries\scshape}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.5ex \@plus .2ex}%
-                                     {\normalfont\large\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.5ex \@plus .2ex}%
-                                     {\normalfont\normalsize\scshape}}
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
-                                        {3.25ex \@plus1ex \@minus.2ex}%
-                                        {-1em}%
-                                        {\normalfont\normalsize\scshape}}            
-                           
-% --- Point après paragraphe ---
+\titleformat{\section}{\Large\bfseries\scshape}{\thesection}{1em}{}[\@presSection]
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}[\@presSection]
+\titleformat{\subsubsection}{\scshape}{\thesubsubsection}{1em}{}[\@presSection]
+\titleformat{\paragraph}[runin]{\scshape}{}{1em}{}[.]
+\titlespacing{\paragraph}{\z@}{\bigskipamount}{1em}
 
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1.}}
+\patchcmd{\ttl@straight@ii}{\vspace{\@tempskipb}}{\vskip\@tempskipb}{}{}
 
 % --- En-tête et pied-de-page ---
+
+\RequirePackage{fancyhdr}
 
 \newcommand{\@maison}{\includegraphics[height=.7em]{maison}}
 \newcommand{\@cadrerouge}[1]{\fboxsep3pt\color{red!15}\fbox{\color{black}#1}}
@@ -241,26 +291,31 @@
 \renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{normale}{%
-\fancyhead{}
-\fancyfoot{}
-\rhead{\small\ifodd\thepage\relax
-\parbox[b]{.9\linewidth}{\raggedleft\rightmark}
-\else
-\parbox[b]{.1\linewidth}{\raggedleft\thepage}
-\fi}
-\lhead{\small\ifodd\thepage\relax
-\parbox[b]{.1\linewidth}{\thepage}
-\else
-\parbox[b]{.9\linewidth}{\leftmark}
-\fi}
+	\fancyhead{}
+	\fancyfoot{}
+	\rhead{%
+		\small%
+		\ifodd\thepage\relax
+			\parbox[b]{.9\linewidth}{\raggedleft\rightmark}
+		\else
+			\parbox[b]{.1\linewidth}{\raggedleft\thepage}
+		\fi
+	}
+	\lhead{%
+		\small%
+		\ifodd\thepage\relax
+			\parbox[b]{.1\linewidth}{\thepage}
+		\else
+			\parbox[b]{.9\linewidth}{\leftmark}
+		\fi
+	}
 }
-
 
 \fancypagestyle{nopage}{
 	\fancyhead{}
 	\fancyfoot{}
-	\lhead{\small\ifodd\value{page}\relax\thepage\fi}
-	\rhead{\small\ifodd\value{page}\else\thepage\fi}
+	\lhead{\small\ifodd\value{page}\else\thepage\fi}
+	\rhead{\small\ifodd\value{page}\relax\thepage\fi}
 }
 
 
@@ -270,21 +325,22 @@
 
 % --- Notes en pied-de-page ---
 
-\newcommand{\note}[1]{\footnote{\parbox[t]{\linewidth}{#1}}}
+\newcommand{\@noteContent}[1]{\parbox[t]{\dimexpr\linewidth-\leftmargin}{#1}}
+\newcommand{\note}[1]{\footnote{\@noteContent{#1}}}
 
 \let\thempfootnote\thefootnote % Évite l'erreur quand on met une note dans une minipage
 \renewcommand{\thefootnote}{\S\arabic{footnote}}
+
 \let\footnotetextold\footnotetext
 \renewcommand{\footnotetext}[2][]{
-\def\@content{\parbox[t]{\linewidth}{#2}}
-\def\@tempa{#1}
-\ifx\@tempa\@empty
-\footnotetextold{\@content}
-\else
-\footnotetextold[#1]{\@content}
-\fi
+	\def\@content{\@noteContent{#2}}
+	\def\@tempa{#1}
+	\ifx\@tempa\@empty
+		\footnotetextold{\@content}
+	\else
+		\footnotetextold[#1]{\@content}
+	\fi
 }
-
 
 % --- Marges ---
 
@@ -298,8 +354,7 @@
 
 % --- Image sans marges ---
 
-\newcommand{\imgnomarge}[1]
-{%
+\newcommand{\imgnomarge}[1]{%
 	\par\noindent%
 	\makebox[\textwidth][r]{\includegraphics[width=\dimexpr\paperwidth-\marginparsep-\marginparwidth]{#1}}%
 	\par%
@@ -307,7 +362,7 @@
 
 % --- Sommaire ---
 
-\setcounter{tocdepth}{1} % Profondeur du sommaire (sera affiché les sous-sections)  % avant : 2
+\setcounter{tocdepth}{1} % Profondeur du sommaire (sera affiché les sous-sections), avant : 2
 
 \addto\captionsfrench{%
 	\renewcommand{\contentsname}{Sommaire}%
@@ -321,7 +376,6 @@
 
 \renewcommand{\beforeparttoc}{}
 \renewcommand{\afterparttoc}{\newpage}
-
 
 \setcounter{parttocdepth}{3}
 
@@ -420,8 +474,7 @@
 
 % --- Partie méthodes ---
 
-\newcommand{\methode}
-{ % Méthodes
+\newcommand{\methode}{ % Méthodes
 	\par
 	\setcounter{chapter}{0}%
 	\setcounter{section}{0}%
@@ -431,14 +484,12 @@
 
 % --- Exercice ---
 
-\newcommand{\regle@centree}
-{%
+\newcommand{\regle@centree}{%
 	\leavevmode\leaders\hrule height \dimexpr.25\baselineskip+1pt\relax depth \dimexpr -.25\baselineskip+1pt\relax \hfill\kern0pt%
 }
 
 \newcounter{exo}[part]
-\newcommand{\exercice}[1]
-{%
+\newcommand{\exercice}[1]{%
 	\addtocounter{exo}{1}%
 	\Saut
 	{\parindent\z@%
@@ -447,7 +498,9 @@
 }
 
 % ---- Espacements ----
-% Tu peux augmenter l'espacement (par défaut, 1 pt).
+
+\RequirePackage[math]{cellspace}
+
 \cellspacetoplimit3pt
 \cellspacebottomlimit3pt
 
