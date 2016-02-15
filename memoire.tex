@@ -151,7 +151,9 @@ Par le théorème d'inversion locale, $(v^{1},\ldots,v^{n})$ sera un système de
 Nous dirons que $\xi=(\xi_1,\xi_2,\xi_3)$ est un \emph{croisement} si $\Delta P(\xi)$ a une valeur propre strictement positive et une strictement négative.
 }{}
 
-De manière équivalente, $\xi$ est un croisement si $\xi$ est un point critique non dégénéré et d'index $1$ pour les applications : \[\fonc{\varphi_i}{\enstq{(x_0:x_1:x_2)\in \P^{2}(\R)}{x_i\neq 0}}{\R}{x}{\frac{P(x)}{x_i}\deg P} \]pour $i$ tel que $\xi_i\neq 0$.
+De manière équivalente, $\xi$ est un croisement si $\xi$ est un point critique non dégénéré et d'index $1$ pour les applications : \[\fonc{\varphi_i}{\enstq{(x_0:x_1:x_2)\in \P^{2}(\R)}{x_i\neq 0}}{\R}{x}{\frac{P(x)}{x_i}\deg P} \]
+\[ \tilde{P}(x_1,x_2) = P(1,x_1,x_2) \]
+pour $i$ tel que $\xi_i\neq 0$.
 
 Le lemme de \textsc{Morse} implique qu'au voisinage de $\xi$, $\R P$ est la réunion de deux droites réelles.
 
@@ -161,7 +163,7 @@ Le théorème des petites perturbations s'énonce de la manière suivante :
 
 \theoreme{ 
 Soit $P$ un polynôme de degré $d$ dont les points critiques sont des croisements. Soit $Q$ un polynôme de degré $d$ dont la courbe algébrique ne passe pas par les points critiques de $P$.
- Soit $U$ un voisinage régulier de $\R A$ dans $\P^{2}(\R)$ tel que $U$ se décompose selon : \[U = U_0 \cup U_1 \]où $U_0$ est voisinage des points critiques et $U_1$ est un voisinage tubulaire de la sous-variété $\R P-U_0$ dans $\P^{2}(\R)-U_0$.
+ Soit $U$ un voisinage régulier de $\R P$ dans $\P^{2}(\R)$ tel que $U$ se décompose selon : \[U = U_0 \cup U_1 \]où $U_0$ est voisinage des points critiques et $U_1$ est un voisinage tubulaire de la sous-variété $\R P-U_0$ dans $\P^{2}(\R)-U_0$.
 
 Alors il existe $X$ de degré $d$ tel que :
 \begin{enumerate}
