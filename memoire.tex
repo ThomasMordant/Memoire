@@ -90,7 +90,7 @@ Nous procédons de même avec le cas où nous aurions $5$ ovales. Par leurs $5$ 
 Il est utile de mentionner le résultat suivant qui donne la classification topologique (mais ne donne pas de classification sur le plongement).
 \lemme{ 
 Soit $l$ le nombre de composantes connexes, alors \[  1 \leq l \leq \frac{(d-1)(d-2)}{2}+1\note{Le quotient est le genre (en tant que surface) des zéros de $F$ dans $\C$.}\]et les deux bornes sont atteintes pour tout degré $d$.
-}{\bsc{Harnacle} - 1876}
+}{\bsc{Harnack} - 1876}
 
 \paragraph{Pour $d=6$}C'est ici qu'apparaissent les premières difficultés. Le lemme précédent nous donne $l\leq 11$, lorsque cette borne est atteinte nous dirons que la courbe est \textit{maximale}. Supposons $l=11$, on a les trois possibilités suivantes, regroupées dans la figure suivante\note{La première configuration est la courbe de \bsc{Harnack}.}.
 
@@ -177,6 +177,51 @@ Alors il existe $X$ de degré $d$ tel que :
 Il existe aussi $\eps >0$ tel que pour tout $t\in ]0,\eps]$, $X=P+tQ$ convienne.
 }{Petites perturbations}
 
+
+\section{Théorème de \bsc{Harnack}}
+
+\theoreme{
+Pour tout entier naturel $m$ et pour tout entier $c$ vérifiant
+\begin{equation}
+\frac{1-(-1)^m}{2} \leq c \leq \frac{m^2-3m+4}{2} \label{HarnackIneq}
+\end{equation}
+il existe une courbe plane non-singulière de degré $m$ et constituée de $c$ composantes.}{\bsc{Harnack} 1876}
+
+L'inégalité à droite de (\ref{HarnackIneq}) est l'inégalité de \bsc{Harnack}, celle de gauche découle de considérations élémentaires : une courbe de degré impair a forcément une droite projective comme composante. L'encadrement (\ref{HarnackIneq}) est donc une condition nécessaire de l'existence d'une courbe avec $c$ composantes, et le théorème affirme que cette condition est suffisante, et résout ainsi le problème de classification des courbes de degré $m$ à homéomorphisme près.
+
+Commençons par démontrer que l'inégalité de droite de (\ref{HarnackIneq}) est optimale.
+
+\lemme{
+Pour tout entier naturel $m$, il existe une courbe de degré $m$ contenant 
+$ \frac{m^2-3m+4}{2} $ composantes. Une telle courbe est appelée une M-courbe de degré $m$.} {}
+\preuve{
+Nous allons construire une suite de telles courbes. Le cas $m \leq 5$ a déjà été traité, on peut donc partir d'une M-courbe de degré 5, $A_5$, construite à partir de l'union de deux coniques et d'une droite $L$, perturbée en direction de l'union $B_5$ de cinq droites. 
+
+On définit par récurrence $B_m$ pour $m > 5$ comme l'union de $m$ droites qui intersectent $\R L$ en $m$ points distincts tels que, si $m$ est pair, les points sont dans une composante arbitraire de $\R L \setminus \R B_{m-1} $, et si $m$ est impair, les points sont dans la composante de $\R L \setminus \R B_{m-1} $ qui contient $\R L \inter \R B_{m-2}$ (nous nous plaçons dans un espace projectif, il ne faut donc pas perdre de vue que le complémentaire d'un point dans une droite ne contient qu'une composante). On construit aussi $A_m$ comme une petite perturbation de $A_{m-1} \union L$ dirigée vers $B_m$. 
+
+Pour $m>5$, supposons que $A_{m-1}$ est une M-courbe de degré $m-1$, telle que $\R A_{m-1}$ intersecte $\R L$ transversalement en $m-1$ points, placés sur une seule composante de $\R A_{m-1}$, dans le même ordre que sur $\R L$. Alors pour une certaine direction de la perturbation de $A_{m-1}$, cette composante donne $m-1$ composantes, et les $ \frac{ (m-1)^2 -3(m-1)+4 }{2} -1 = \frac{m^2-5m+6}{2} $ autres composantes ne sont que légèrement modifiées. Le nombre de composantes de $ \R A_m $ est donc : 
+\[\frac{m^2-5m+6}{2} +m-1 = \frac{m^2-3m+4}{2} .\] 
+$A_m$ est donc bien une M-courbe de degré $m$.
+
+Par le théorème des petites perturbations, $\R A_m $ est transversal à $\R L$ et leur intersection est $ \R L \inter \R B_m $. Comme $ \R L \inter \R B_m $ est contenu dans une composante de $ \R L \setminus \R B_{m-1} $, il est aussi contenu dans une seule composante de $\R A_m $, et ses points apparaissent dans le même ordre sur $\R L$ que sur cette composante, ce qui termine la récurrence.\cqfd}{}
+
+On voit aussi que l'inégalité de gauche de (\ref{HarnackIneq}) est optimale : il suffit de considérer la courbe $P(x_1,x_2,x_3) = {x_1}^m+{x_2}^m+{x_3}^m $, dont l'ensemble des zéros projectifs est vide si $m$ est pair, et est une droite projective sinon. 
+
+Le reste de la démonstration peut se faire en construisant des courbes avec un nombre quelconque de composantes de la même manière que dans la démonstration du lemme avec des $B_m$ construits différemment. Cette démonstration est fastidieuse et n'inclut pas de nouvelles idées, nous ne la présenterons donc pas. Il existe aussi une preuve plus conceptuelle utilisant $ \R C_m $, l'espace projectif des polynômes homogènes de degré $m$.
+
+On appelle M-courbes de \bsc{Harnack} les M-courbes pouvant être obtenues par cette méthodes (le seul degré de liberté laissé par la démonstration est, pour $m$ pair, la composante de $\R L \setminus \R B_{m-1} $ dans laquelle se trouve $\R B_m $). 
+
+\section{Bref historique des travaux généraux après \bsc{Harnack}}
+
+En 1891, \bsc{Hilbert} s'intéressa au problème de la classification des classes d'isotopie des courbes réelles projectives, et en particulier des M-courbes. Il remarqua que la construction de \bsc{Harnack} ne permettait pas d'obtenir tous les types d'isotopies des M-courbes, et proposa une autre construction, similaire à celle de \bsc{Harnack}, mais où les lignes sont remplacés par des coniques. Pour $ m= 6 $, la construction de \bsc{Harnack} ne donnait qu'un type d'isotopie, et celle de \bsc{Hilbert} en donnait un nouveau. \bsc{Hilbert} conjectura que ces deux types étaient les seuls possibles, mais cette conjecture fut invalidée par \bsc{Gudkov} en 1969, qui en trouva un troisième, et montra qu'il n'y avait pas plus de trois types possibles.
+
+
+En 1900, \bsc{Hilbert} présenta sa célèbre liste de problèmes devant guider les mathématiques de XXème siècle, et en seizième position y figurait, notamment, la classification des types d'isotopie des courbes réelles projectives de degré 6. 
+
+Au cours du XXème siècle, les mathématiciens cherchèrent des conditions nécessaires plus fortes que celles entraînées par le théorème de \bsc{Bezout} et l'inégalité de \bsc{Harnack}. \bsc{Ragsdale} ouvrit la voie en s'intéressant aux M-courbes de degré pair et en séparant les ovales d'une courbe en deux groupes : les ovales pairs, qui sont contenus dans un nombre pair d'autres ovales (on note $p$ leur nombre) et les ovales impairs (on note $n$ leur nombre). En étudiant les résultats des constructions de \bsc{Harnack} et de \bsc{Hilbert} pour de petits degrés, elle conjectura en 1906 des encadrements sur $p$ et $n$ pour les courbes de \bsc{Harnack} et de \bsc{Hilbert}, sur lesquels travaillèrent notamment \bsc{Petrovsky}, \bsc{Viro}, et \bsc{Itenberg}. La première nouvelle condition nécessaire portant sur toutes les M-courbes de degré pair fut le théorème de \bsc{Petrovsky} :
+
+\theoreme{ Pour toute courbe plane projective réelle algébrique non-singulière de degré $m = 2k $ :
+\[ - \frac{3}{2} k(k-1) \leq p-n \leq \frac{3}{2} k(k-1) +1.\]}{\bsc{Petrovsky} 1933-1938}
 
 \printbibliography
 \end{document}
