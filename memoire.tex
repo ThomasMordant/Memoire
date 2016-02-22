@@ -223,5 +223,63 @@ Au cours du XXème siècle, les mathématiciens cherchèrent des conditions néc
 \theoreme{ Pour toute courbe plane projective réelle algébrique non-singulière de degré $m = 2k $ :
 \[ - \frac{3}{2} k(k-1) \leq p-n \leq \frac{3}{2} k(k-1) +1.\]}{\bsc{Petrovsky} 1933-1938}
 
+\section{L'espace des courbes algébriques réelles}
+
+Désignons par $\R C_m$ l'ensemble des courbes algébriques réelles de degré $m$. C'est naturellement un espace projectif de dimension $m(m+3)/2$. En effet, à un polynôme, $P$, homogène de degré $m$ à trois variables, on a la représentation \[ P(x,y,z) = \sum_{i,j\geq 0\atop i+j \leq m} a_{i,j}x^{i}y^{j}z^{m-i-j}. \]
+
+Désignons par $\R NC_m$ les courbes non-singulières. Elles forment évidemment un ouvert de $\R C_m$. De plus, localement, les courbes de $\R NC_m$ sont isotopes.
+
+Ainsi, les différents types d'isotopies se relèvent sur les différentes composantes connexes de $\R NC_m$. Un chemin dans $\R NC_m$ donne une isotopie, dite, \emph{rigide}, entre deux courbes algébriques réelles de degré $m$.
+
+\chapter{Point de vue complexe sur les courbes algébriques réelles}
+
+\section{Caractéristiques topologiques complexes d'une courbe algébrique réelle}
+
+En 1876 F. \bsc{Klein} a posé la question de type isotopique de manière plus générale. Il s'est intéressé au lien entre les points de $\R P$ et ceux de $\C P$, son analogue complexe.
+
+Pour définir une relation de positionnement entre ces deux objets, considérons le plan projectif complexe $\P^{2}(\C)$, alors les zéros complexes de $P$ forment une sous-variété de dimension $2$ dans $\P^{2}(\C)$ que l'on appelle $\C P$.
+
+Il s'avère que le cas complexe trivialise deux questions. La première est celle de la topologie de $\C P$, si $P$ est de degré $m$ alors $\C P$ est homéomorphe à la sphère à $(m-1)(m-2)/2$ anses. La seconde est celle du type d'isotopie du couple $(\P^{2}(\C), \C P)$, elle ne dépend que du degré de $P$.
+
+
+
+Les points de $\R P$ se définissent comme étant les invariants par conjugaison des points de $\C P$. La conjugaison dans $\P^{2}(\C)$ étant définie par : \[\mathrm{conj}: [x:y:z]\mapsto [\barre{x}:\barre{y}:\barre{z}]. \]
+
+La courbe $\R P$ peut, ou non, diviser en deux composantes connexes $\C P$. Dans le premier cas on dira que $\R P$ est de type I et dans le second, de type II.
+
+Un cône projectif est homéomorphe à $\bS^{2}$. En effet, la projection stéréographique depuis un point de la conique sur une droite projective est un homéomorphisme.
+
+La conique vide, ainsi que n'importe quelle courbe algébrique avec un ensemble vide de points réels, est de type II.  Une courbe réelle non-singulière de degré $2$ est de type 1. Ainsi, le schéma de degré $2$ $\langle 1\rangle$ est de type 1.
+
+Pour ce qui est de l'orientation, 
+
+\section{Théorème complexe des petites perturbations}
+
+Considérons un premier cas élémentaire : la perturbation de droites réelles : $L_1$ et $L_2$ ces droites et $C$ le résultat. On a vu que $\C L_i$ et $\C C$ sont homéomorphes à $\bS^{2}$. Les sphères $\C L_1$ et $\C L_2$ s'intersectent à un unique point.
+
+La version complexe du théorème des fonctions implicites montre que $\C C$ est une approximation de $\C L_1\cup \C L_2$ en dehors d'un voisinage $U_0$ de ce point d'intersection dans le sens où $\C C-U_0$ est une section du voisinage tubulaire $U_1$ de $(\C L_1 \cup \C L_2)-U_0$.
+
+Ainsi, $\C C$ est la réunion de deux disque et d'une partie contenant un petit voisinage de $\C L_1 \cap \C L_2$.
+
+Comme $\C C$ est homéomorphe à $\bS^{2}$ et que le complémentaire de deux disques disjoints plongés dans $\bS^{2}$ est homéomorphe à un anneau, la troisième partie de $\C C$ en est un. Les disques sont les complémentaires d'un voisinage de $\C L_1\cap \C L_2$ respectivement dans $\C L_1$ et $\C L_2$, légèrement perturbés dans $\P^{2}(\C)$ et l'anneau connecte ces deux disques à travers le voisinage $U_0$ de $\C L_1\cap \C L_2$.
+
+
+Jusqu'ici, il n'y a pas d'importance quant à la nature réelle des courbes en jeu.
+Pour se ramener au cas réel, il faut décrire la position des parties réelles des courbes dans leurs complexifiées and l'action de conjugaison.
+
+Le montage complexe précédent est invariant par conjugaison, donc l'intersection de $\C L_1$ et $\C L_2$ est réelle et son voisinage $U_0$ peut être choisi comme invariant par l'action de conjugaison.
+Donc $\C C$ se représente comme la réunion de deux demi-disques et d'un demi-anneau : les demi-disques approchent les moitiés de $\C L_1$ et $\C L_2$ et un moitié de l'anneau est contenue dans $U_0$.
+
+Il reste à spécifier quels sont les demi-disques connectés par un demi-anneau.
+
+
+Dans le cas général, commençons par considérer l'objet complexe tel quel. Considérons une surface algébrique qui n'a que des points doubles non dégénérés. Près d'un tel point, on reconnait la réunion de deux droites s'intersectant en ce point. Cela signifie qu'il existe un voisinage $U$ de ce point dans $\P^{2}(\C)$ et un difféomorphisme qui envoie $U$ dans $\C^{2}$ en associant l'intersection de $U$ et la courbe à l'union de deux droites complexes qui s'intersectent en $0$. Cela vient de la version complexe du lemme de \bsc{Morse}. Encore par ce lemme, près d'un point double, le théorème des petites perturbations classique applique une petite perturbation à la réunion des deux droites : la réunion de deux disques transverses est remplacée par un anneau.
+
+
+Par exemple, prenons la réunion de $m$ droites projectives dont $3$ n'ont pas de point en commun. Ses points complexes sont la réunion de $m$ copies de $\bS^{2}$ telles que deux ont exactement un point en commun. Une perturbation peut être pensée comme le découpage dans chacune des sphères de $m-1$ disques et au recollage de $m(m-1)/2$ tubes connectant les frontières des disques découpés. Le résultat est orientable (en tant que variété complexe). On obtient alors une sphère avec $(m-2)(m-1)/2$ anses.
+
+
+
+
 \printbibliography
 \end{document}
