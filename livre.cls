@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --- Classe livre de R. Alexandre --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% P
 \NeedsTeXFormat{LaTeX2e}
 
 \ProvidesClass{livre}
