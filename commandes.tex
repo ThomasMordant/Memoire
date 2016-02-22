@@ -2,25 +2,19 @@
 % --- Commandes communes aux classes personnalisées --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{mdframed}
-\usepackage{enumitem}
-\usepackage{dsfont}
-\usepackage{float}
-
 % --- Inclusion d'image ---
 
-\newcommand{\inc}[1]{\includegraphics[width = \textwidth]{#1}}
+\newcommand{\inc}[1]{\includegraphics[width=\textwidth]{#1}}
 
 % --- Pour des mathématiques en gras dans les titres ---
 
 \DeclareRobustCommand*{\bfseries}{%
-  \not@math@alphabet\bfseries\mathbf%
-  \fontseries\bfdefault\boldmath\selectfont%
+	\not@math@alphabet\bfseries\mathbf%
+	\fontseries\bfdefault\boldmath\selectfont%
 }
 
 % --- Commandes d'spacement ---
 
-\newcommand{\Saut}{\par\addvspace{\bigskipamount}\par}
 \newcommand{\bigspace}{\par\addvspace{2\baselineskip}\par}
 
 % --- Commandes de simplifications des mathématiques ---
@@ -29,7 +23,7 @@
 % --- Ensembles de nombres ---
 
 \newcommand\N{\mathbf{N}}
-\renewcommand\P{\mathbf{P}} 
+\renewcommand\P{\mathbf{P}}
 \newcommand\Z{\mathbf{Z}}
 \newcommand\Q{\mathbf{Q}}
 \newcommand\D{\mathbf{D}}
@@ -57,12 +51,13 @@
 \newcommand{\cO}{\mathcal{O}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\cQ}{\mathcal{Q}}
-\newcommand{\cR}{\mathcal{R}} 
+\newcommand{\cR}{\mathcal{R}}
 \newcommand{\cS}{\mathcal{S}}
 \newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
 \newcommand{\cX}{\mathcal{X}}
 \newcommand{\cY}{\mathcal{Y}}
-\newcommand{\cZ}{\mathcal{Z}}\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cZ}{\mathcal{Z}}
 \newcommand{\cJ}{\mathcal{J}}
 \newcommand{\cW}{\mathcal{W}}
 
@@ -98,12 +93,12 @@
 
 % --- Lettres majuscules droites ---
 
-\newcommand{\rE}{{\rm E}} 
-\newcommand{\rT}{{\rm T}} 
-\newcommand{\rX}{{\rm X}} 
-\newcommand{\rY}{{\rm Y}} 
-\newcommand{\rO}{{\rm O}} 
-\newcommand{\oo}{{\rm o}} 
+\newcommand{\rE}{{\rm E}}
+\newcommand{\rT}{{\rm T}}
+\newcommand{\rX}{{\rm X}}
+\newcommand{\rY}{{\rm Y}}
+\newcommand{\rO}{{\rm O}}
+\newcommand{\oo}{{\rm o}}
 \newcommand{\rL}{\mathrm{L}}
 
 \newcommand{\matrice}[1]{\begin{pmatrix}#1\end{pmatrix}}
@@ -121,12 +116,12 @@
 \newcommand{\re}{\mathop{\mathrm{Re}}\nolimits}
 \newcommand{\im}{\mathop{\mathrm{Im}}\nolimits}
 \newcommand{\eps}{\varepsilon}
-\newcommand{\ssi}{\iff} 
+\newcommand{\ssi}{\iff}
 \newcommand{\implique}{\implies}
 \newcommand{\vers}{\rightarrow}
 \newcommand{\donne}{\mapsto}
-\def \m {^{-1}}
-\def \Sup  {{\mathrm{Sup}}\: }
+\newcommand{\m}{^{-1}}
+\newcommand{\Sup}{{\mathrm{Sup}}\:}
 
 % --- Délimiteurs ---
 
@@ -180,14 +175,13 @@
 \DeclareMathOperator{\Orth}{O}
 \renewcommand{\det}{{\rm det}}
 
-\newcommand*{\fonc}[5]
-{%
-    #1 \colon \left| %
-    \begin{aligned} 
-        #2 &\to     #3 \\
-        #4 &\mapsto #5
-    \end{aligned}
-    \right.%
+\newcommand*{\fonc}[5]{%
+	#1 \colon \left|
+	\begin{aligned}
+		#2 &\to     #3 \\
+		#4 &\mapsto #5
+	\end{aligned}
+	\right.\kern-\nulldelimiterspace
 }
 
 % --- Simplification des symboles ---
@@ -195,7 +189,7 @@
 \newcommand{\transp}[1]{{^t}#1}
 \newcommand{\relation}{\nens{R}}
 \newcommand{\union}{\cup}
-\newcommand{\Union}{\bigcup} 
+\newcommand{\Union}{\bigcup}
 \newcommand{\inter}{\cap}
 \newcommand{\Inter}{\bigcap}
 \newcommand{\dans}{\subset}
@@ -206,7 +200,7 @@
 
 \DeclareMathOperator*{\Ker}{Ker}
 
-\newcommand{\ega}{& = }
+\newcommand{\ega}{&=}
 \newcommand{\rond}{\circ}
 \newcommand{\fcaract}{\chi}
 \newcommand{\prive}[1]{\setminus \ens{#1}}
@@ -237,10 +231,10 @@
 \newcommand{\grad}[1]{\vect{\nabla} \left( #1 \right)}
 
 \newcommand{\inv}[1]{\overset{-1}{#1}}
-\renewcommand{\nmid}{\diagup\hskip-11pt\mid} 
+\renewcommand{\nmid}{\diagup\hskip-11pt\mid}
 \newcommand{\kpn}[2]{\binom{#2}{#1}}
-\newcommand{\ind}[1]{#1 \index{#1}}
-\newcommand{\graphf}[3]{\sageplot[width = \textwidth]{plot(#1,(x,#2,#3))}}
+\newcommand{\ind}[1]{#1\index{#1}}
+\newcommand{\graphf}[3]{\sageplot[width=\textwidth]{plot(#1,(x,#2,#3))}}
 
 \newcommand{\priv}{\setminus}
 \newcommand{\rep}{(O,\vect{\imath},\vect{\jmath})}
@@ -252,31 +246,12 @@
 \newcommand{\fdef}{\begin{center}$\clubsuit$\end{center}}
 \newcommand{\ouv}[1]{\overset{\circ}{#1}}
 
-\newcommand{\paragraphsc}[1]{\paragraph{#1}}
-
-
 % --- Définitions des points ---
 
 \newcounter{propiC}
-\setcounter{propiC}{0} 
+\setcounter{propiC}{0}
 \newcommand{\propt}[1]{\refstepcounter{propiC}\textbf{\thepropiC. \ }\label{#1}}
 \newcommand{\newpropt}{\setcounter{propiC}{0}}
-
-% --- Couleurs des liens ---
-
-\hypersetup{
-	colorlinks=true,
-	breaklinks=true,
-	urlcolor=black,
-	linkcolor=black, 
-	citecolor=black
-}
-
-% --- Début et fin de document ---
-
-\AtBeginDocument{\maketitle}
-
-
 
 % --- Enoncés ---
 %%%%%%%%%%%%%%%%%
@@ -284,49 +259,59 @@
 % --- Définition de style de théorème ---
 
 \newtheoremstyle{myplain}
-    {\z@}
-    {\z@}
-    {}
-    {}
-    {\scshape}
-    {}
-    { }% Fais attention à l'espace !
-    {}
+	{\z@}
+	{\z@}
+	{}
+	{}
+	{\scshape}
+	{}
+	{ }
+	{}
 
 \patchcmd{\@begintheorem}{\ignorespaces}{\strut\par\nobreak\ignorespaces\setlist{nolistsep}}{}{}
-
 
 \theoremstyle{myplain}
 
 % --- Encadrement ---
 
+\RequirePackage{mdframed}
+
+\newcommand{\@expandNotes}{}
+\newcounter{numberfootnote}
 \newenvironment*{encadrer}[1][1pt]{%
-\Saut
-\begin{mdframed}[
-topline=false, bottomline=false, rightline=false, linewidth=#1,
-skipabove=0pt, skipbelow=0pt, rightmargin=-10pt,
-innertopmargin=0pt, innerbottommargin=0pt,
-everyline=true, splittopskip=0pt, splitbottomskip=0pt
-]
-}
-{%
-\end{mdframed}
-\Saut
+	\Saut
+	\setcounter{numberfootnote}{\number\value{footnote}}
+	\renewcommand{\@expandNotes}{}
+	\renewcommand{\note}[1]{%
+		\footnotemark%
+		\gappto{\@expandNotes}{%
+			\addtocounter{numberfootnote}{1}%
+			\footnotetext[\thenumberfootnote]{##1}%
+		}
+	}
+	\begin{mdframed}[
+		topline=false, bottomline=false, rightline=false, linewidth=#1,
+		skipabove=0pt, skipbelow=0pt,
+		innertopmargin=0pt, innerbottommargin=0pt,
+		everyline=true, splittopskip=0pt, splitbottomskip=0pt
+	]
+}{%
+	\end{mdframed}%
+	\@expandNotes
 }
 
 % --- Définition des théorèmes ---
 
-
-\newtheorem{definitionT}    {Définition}    [section]
-\newtheorem{propositionT}[definitionT]   {Proposition}   
-\newtheorem{theoremeT}[definitionT]      {Théorème}
-\newtheorem{loiT}[definitionT]           {Loi} 
-\newtheorem*{demonstrationT}		{Preuve}
-\newtheorem*{preuveT}		{Preuve}
-\newtheorem{axiomeT}[definitionT]        {Axiome}
-\newtheorem{lemmeT} [definitionT]        {Lemme}
-\newtheorem{corollaireT} [definitionT]   {Corollaire}
-\newtheorem{procedeT} [definitionT]   {Procédé}
+\newtheorem{definitionT}{Définition}[section]
+\newtheorem{propositionT}[definitionT]{Proposition}
+\newtheorem{theoremeT}[definitionT]{Théorème}
+\newtheorem{loiT}[definitionT]{Loi}
+\newtheorem*{demonstrationT}{Preuve}
+\newtheorem*{preuveT}{Preuve}
+\newtheorem{axiomeT}[definitionT]{Axiome}
+\newtheorem{lemmeT}[definitionT]{Lemme}
+\newtheorem{corollaireT}[definitionT]{Corollaire}
+\newtheorem{procedeT}[definitionT]{Procédé}
 
 % --- Théorèmes encadrés ---
 
